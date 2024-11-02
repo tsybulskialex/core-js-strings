@@ -159,8 +159,22 @@ function repeatString(str, times) {
  *   removeFirstOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeFirstOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeFirstOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeFirstOccurrences(str, value) {
+  const id = str.indexOf(value);
+  if (str.indexOf(value) === -1) {
+    return str;
+  }
+  const len = value.length;
+  let newStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (i < id) {
+      newStr += str[i];
+    }
+    if (i >= len + id) {
+      newStr += str[i];
+    }
+  }
+  return newStr;
 }
 
 /**
@@ -175,8 +189,22 @@ function removeFirstOccurrences(/* str, value */) {
  *   removeLastOccurrences('I like legends', 'end') => 'I like legs'.
  *   removeLastOccurrences('ABABAB', 'BA') => 'ABAB'.
  */
-function removeLastOccurrences(/* str, value */) {
-  throw new Error('Not implemented');
+function removeLastOccurrences(str, value) {
+  const id = str.lastIndexOf(value);
+  if (str.lastIndexOf(value) === -1) {
+    return str;
+  }
+  const len = value.length;
+  let newStr = '';
+  for (let i = 0; i < str.length; i += 1) {
+    if (i < id) {
+      newStr += str[i];
+    }
+    if (i >= len + id) {
+      newStr += str[i];
+    }
+  }
+  return newStr;
 }
 
 /**
@@ -430,8 +458,8 @@ function extractNameFromTemplate(/* value */) {
  *   unbracketTag('<span>') => 'span'
  *   unbracketTag('<a>') => 'a'
  */
-function unbracketTag(/* str */) {
-  throw new Error('Not implemented');
+function unbracketTag(str) {
+  return str.slice(1, -1);
 }
 
 /**
@@ -449,8 +477,8 @@ function unbracketTag(/* str */) {
  *   ],
  *   'info@gmail.com' => ['info@gmail.com']
  */
-function extractEmails(/* str */) {
-  throw new Error('Not implemented');
+function extractEmails(str) {
+  return str.split(';');
 }
 
 /**
